@@ -1,0 +1,18 @@
+{% macro ad(slot) -%}
+{% if cfg.adsense and cfg.adsense.client and slot %}
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="{{ cfg.adsense.client }}" data-ad-slot="{{ slot }}" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+{% endif %}
+{%- endmacro %}
+
+{% macro row(it, show_cat=false) -%}
+<li class="row{% if it.kind == 'post' %} is-post{% endif %}">
+  <a href="{{ base }}/{{ it.path }}">{{ it.title }}</a>
+  <span class="meta">
+    {% if it.new %}<b class="new">NEW</b>{% endif %}
+    {% if it.kind == 'post' %}<b class="full">Full Detail</b>{% endif %}
+    {% if show_cat %}<span class="tag tag-{{ it.category }}">{{ CATS[it.category][0] }}</span>{% endif %}
+    {% if it.org %}<span class="org">{{ it.org }}</span>{% endif %}
+    <time>{{ (it.date or it.first_seen) | d }}</time>
+  </span>
+</li>
+{%- endmacro %}

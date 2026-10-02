@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block main %}
+<nav class="crumbs"><a href="{{ base }}/">Home</a> › Status</nav>
+<header class="page-h">
+  <h1>Source status</h1>
+  <p>Robot ne official sites ko last kab check kiya aur kya mila. Agar koi source lagatar <b>fail</b> ya <b>0 found</b> dikhaye, to
+  <code>sources.yaml</code> me uska URL ya <code>selector</code> check karein.{% if status.updated %} Last run: {{ status.updated | d }} {{ status.updated[11:16] }} IST · new this run: {{ status.new_this_run }}{% endif %}</p>
+</header>
+<div class="scroll"><table class="grid status">
+<thead><tr><th>Source</th><th>Result</th><th>Found</th><th>New</th><th>Last OK</th><th>Error</th></tr></thead>
+<tbody>
+{% for s in status.sources or [] %}
+<tr class="{{ 'ok' if s.ok and s.found else ('warn' if s.ok else 'bad') }}">
+  <td><a href="{{ s.url }}" rel="nofollow noopener" target="_blank">{{ s.name }}</a></td>
+  <td>{{ 'OK' if s.ok and s.found else ('0 found' if s.ok else 'FAIL') }}</td>
+  <td>{{ s.found }}</td><td>{{ s.new }}</td>
+  <td>{{ s.last_ok | d if s.last_ok else '—' }}</td>
+  <td class="err">{{ s.error or '' }}</td>
+</tr>
+{% else %}<tr><td colspan="6">Abhi tak koi run nahi hua.</td></tr>
+{% endfor %}
+</tbody></table></div>
+{% endblock %}

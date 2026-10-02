@@ -1,0 +1,66 @@
+name: Auto update site
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"   # har 3 ghante (UTC) — 8 baar roz
+  workflow_dispatch:          # Actions tab se "Run workflow" dabakar turant chalao
+  push:
+    branches: [main]
+    paths-ignore: ["data/**", "README.md"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update-site
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          pip install -r requirements.txt pytest
+          python -m playwright install --with-deps chromium
+
+      - name: Tests
+        run: python -m pytest -q tests
+
+      - name: Check official sites for new notices
+        run: python -m scraper.update
+
+      - name: Build website
+        run: python -m builder.build
+
+      - name: Save new notices to repo
+        run: |
+          git config user.name  "site-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data change"
+          else
+            git commit -m "Auto-update notices $(TZ=Asia/Kolkata date '+%d-%m-%Y %H:%M IST')"
+            for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
+          fi
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block main %}
+<nav class="crumbs"><a href="{{ base }}/">Home</a> › {{ title }}</nav>
+<article class="detail prose page">
+  <h1>{{ title }}</h1>
+  {{ body_html | safe }}
+</article>
+{% endblock %}

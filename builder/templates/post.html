@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% macro table2(rows) -%}
+<table class="kv">{% for r in rows %}<tr><th>{{ r[0] }}</th><td>{{ r[1] }}</td></tr>{% endfor %}</table>
+{%- endmacro %}
+{% block main %}
+<nav class="crumbs"><a href="{{ base }}/">Home</a> › <a href="{{ base }}/{{ p.category }}/">{{ CATS[p.category][0] }}</a> › {{ p.org }}</nav>
+<div class="layout">
+<article class="detail">
+  <header class="detail-h box-{{ p.category }}">
+    <span class="tag tag-{{ p.category }}">{{ CATS[p.category][0] }}{% if p.org %} · {{ p.org }}{% endif %}</span>
+    <h1>{{ p.title }}</h1>
+    <p class="posted">Post date: {{ p.date | d }}{% if p.updated != p.date %} · Updated: {{ p.updated | d }}{% endif %}</p>
+  </header>
+
+  {% if p.short %}<p class="short"><strong>Short Information:</strong> {{ p.short }}</p>{% endif %}
+
+  {% if p.important_dates or p.fees %}
+  <div class="grid2">
+    {% if p.important_dates %}<section class="panel"><h2>Important Dates</h2>{{ table2(p.important_dates) }}</section>{% endif %}
+    {% if p.fees %}<section class="panel"><h2>Application Fee</h2>{{ table2(p.fees) }}{% if p.fee_note %}<p class="note">{{ p.fee_note }}</p>{% endif %}</section>{% endif %}
+  </div>
+  {% endif %}
+
+  {% if p.age_limit or p.total_posts %}
+  <div class="grid2">
+    {% if p.age_limit %}<section class="panel"><h2>Age Limit</h2>{% if p.age_limit is string %}<p>{{ p.age_limit }}</p>{% else %}{{ table2(p.age_limit) }}{% endif %}</section>{% endif %}
+    {% if p.total_posts %}<section class="panel total"><h2>Total Posts</h2><p class="big">{{ p.total_posts }}</p></section>{% endif %}
+  </div>
+  {% endif %}
+
+  {% if p.vacancies %}
+  <section class="panel">
+    <h2>Vacancy Details &amp; Eligibility</h2>
+    <div class="scroll"><table class="grid">
+      <thead><tr>{% for h in p.vacancies[0] %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+      <tbody>{% for r in p.vacancies[1:] %}<tr>{% for c in r %}<td>{{ c }}</td>{% endfor %}</tr>{% endfor %}</tbody>
+    </table></div>
+  </section>
+  {% endif %}
+
+  {{ m.ad(cfg.adsense.slot_in_content if cfg.adsense else '') }}
+
+  {% if p.body_html %}<section class="prose">{{ p.body_html | safe }}</section>{% endif %}
+
+  {% if p.links %}
+  <section class="panel links">
+    <h2>Important Links</h2>
+    <table class="kv">{% for l in p.links %}<tr><th>{{ l[0] }}</th><td><a href="{{ l[1] }}" rel="nofollow noopener" target="_blank">Click Here</a></td></tr>{% endfor %}</table>
+  </section>
+  {% endif %}
+
+  <p class="note">Sabhi jaankari official notification se li gayi hai. Kisi bhi galti ki sthiti me official notification hi maanya hoga.</p>
+
+  {% if related %}
+  <section class="box box-{{ p.category }} related">
+    <h2>Related {{ CATS[p.category][0] }}</h2>
+    <ul class="list">{% for it in related %}{{ m.row(it) }}{% endfor %}</ul>
+  </section>
+  {% endif %}
+</article>
+<aside class="side">
+  {{ m.ad(cfg.adsense.slot_sidebar if cfg.adsense else '') }}
+  <div class="side-box">
+    <h3>Categories</h3>
+    {% for c in CATEGORY_ORDER %}<a href="{{ base }}/{{ c }}/">{{ CATS[c][0] }} <span lang="hi">{{ CATS[c][1] }}</span></a>{% endfor %}
+  </div>
+</aside>
+</div>
+{% endblock %}

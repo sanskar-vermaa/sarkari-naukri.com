@@ -1,0 +1,177 @@
+# ==========================================================
+#  OFFICIAL SOURCES — robot inhi pages se naye notices uthata hai
+# ==========================================================
+# Har source ke options:
+#   id:        chhota unique naam (URL me use hota hai)
+#   name:      poora naam (site par dikhta hai)
+#   short:     short tag (UPSC, SSC ...)
+#   url:       wo page jahan notices ki list hoti hai
+#   region:    central / mp / delhi / up / bihar / rajasthan / haryana / cg
+#   js:        true  -> page JavaScript se banta hai, headless browser se kholo
+#   selector:  (optional) CSS selector — sirf is hisse ke links lo, e.g. "#news, .notice-board"
+#   include:   (optional) regex — sirf matching titles lo
+#   exclude:   (optional) regex — matching titles chhod do
+#   default_category: (optional) agar title se category samajh na aaye
+#   enabled:   false karke kisi source ko band kar sakte ho
+#
+# Naya source add karna ho to bas ek block copy karke URL badal do.
+# Kaunsa source kaam kar raha hai, wo site ke /status/ page par dikhta hai.
+
+sources:
+  # ---------------- Central ----------------
+  - id: upsc
+    name: Union Public Service Commission
+    short: UPSC
+    url: https://upsc.gov.in/whats-new
+    region: central
+  - id: upsc-recruitment
+    name: UPSC Recruitment
+    short: UPSC
+    url: https://upsc.gov.in/recruitment/recruitment-advertisement
+    region: central
+    default_category: latest-jobs
+  - id: ssc
+    name: Staff Selection Commission
+    short: SSC
+    url: https://ssc.gov.in/
+    region: central
+    js: true
+  - id: ssc-nr
+    name: SSC Northern Region
+    short: SSC
+    url: https://sscnr.nic.in/
+    region: central
+  - id: ssc-cr
+    name: SSC Central Region
+    short: SSC
+    url: https://ssccr.gov.in/
+    region: central
+  - id: ssc-mpr
+    name: SSC Madhya Pradesh Region
+    short: SSC
+    url: https://www.sscmpr.org/
+    region: mp
+  - id: ibps
+    name: Institute of Banking Personnel Selection
+    short: IBPS
+    url: https://www.ibps.in/
+    region: central
+    js: true
+  - id: sbi
+    name: State Bank of India Careers
+    short: SBI
+    url: https://sbi.co.in/web/careers/current-openings
+    region: central
+    default_category: latest-jobs
+  - id: rbi
+    name: Reserve Bank of India Opportunities
+    short: RBI
+    url: https://opportunities.rbi.org.in/Scripts/Vacancies.aspx
+    region: central
+    default_category: latest-jobs
+  - id: rrb-cdg
+    name: Railway Recruitment Board Chandigarh
+    short: RRB
+    url: https://www.rrbcdg.gov.in/
+    region: central
+  - id: rrb-bpl
+    name: Railway Recruitment Board Bhopal
+    short: RRB
+    url: https://www.rrbbpl.nic.in/
+    region: mp
+  - id: nta
+    name: National Testing Agency
+    short: NTA
+    url: https://nta.ac.in/
+    region: central
+  - id: indiapost
+    name: India Post GDS
+    short: India Post
+    url: https://indiapostgdsonline.gov.in/
+    region: central
+  - id: army
+    name: Join Indian Army
+    short: Army
+    url: https://joinindianarmy.nic.in/
+    region: central
+  - id: navy
+    name: Join Indian Navy
+    short: Navy
+    url: https://www.joinindiannavy.gov.in/
+    region: central
+  - id: isro
+    name: ISRO Careers
+    short: ISRO
+    url: https://www.isro.gov.in/Careers.html
+    region: central
+    default_category: latest-jobs
+  - id: aiims
+    name: AIIMS Exams
+    short: AIIMS
+    url: https://www.aiimsexams.ac.in/
+    region: central
+
+  # ---------------- Madhya Pradesh ----------------
+  - id: mpesb
+    name: MP Employee Selection Board
+    short: MPESB
+    url: https://esb.mp.gov.in/
+    region: mp
+  - id: mppsc
+    name: MP Public Service Commission
+    short: MPPSC
+    url: https://mppsc.mp.gov.in/
+    region: mp
+
+  # ---------------- Other states ----------------
+  - id: dsssb
+    name: Delhi Subordinate Services Selection Board
+    short: DSSSB
+    url: https://dsssb.delhi.gov.in/
+    region: delhi
+  - id: upsssc
+    name: UP Subordinate Services Selection Commission
+    short: UPSSSC
+    url: https://upsssc.gov.in/
+    region: up
+  - id: uppsc
+    name: UP Public Service Commission
+    short: UPPSC
+    url: https://uppsc.up.nic.in/
+    region: up
+  - id: bpsc
+    name: Bihar Public Service Commission
+    short: BPSC
+    url: https://bpsc.bihar.gov.in/
+    region: bihar
+  - id: bssc
+    name: Bihar Staff Selection Commission
+    short: BSSC
+    url: https://bssc.bihar.gov.in/
+    region: bihar
+  - id: rssb
+    name: Rajasthan Staff Selection Board
+    short: RSSB
+    url: https://rssb.rajasthan.gov.in/
+    region: rajasthan
+  - id: rpsc
+    name: Rajasthan Public Service Commission
+    short: RPSC
+    url: https://rpsc.rajasthan.gov.in/
+    region: rajasthan
+    js: true
+  - id: hssc
+    name: Haryana Staff Selection Commission
+    short: HSSC
+    url: https://hssc.gov.in/
+    region: haryana
+  - id: cgvyapam
+    name: Chhattisgarh Vyapam
+    short: CG Vyapam
+    url: https://vyapam.cgstate.gov.in/
+    region: cg
+  - id: cgpsc
+    name: Chhattisgarh Public Service Commission
+    short: CGPSC
+    url: https://psc.cg.gov.in/
+    region: cg

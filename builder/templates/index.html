@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block main %}
+<section class="hero">
+  <div>
+    <h1>Sarkari Naukri, Admit Card &amp; Result {{ year }}</h1>
+    <p>Official websites se har 3 ghante me apne-aap update hone wali list. Har notice ke saath seedha official link.</p>
+  </div>
+  <div class="hero-stat">
+    <span>{{ total }}</span><small>active updates</small>
+    {% if status.updated %}<em>Last checked {{ status.updated[11:16] }} IST, {{ status.updated | d }}</em>{% endif %}
+  </div>
+</section>
+
+{% if latest %}
+<section class="ticker" aria-label="Latest updates">
+  <b class="ticker-h">Latest</b>
+  <div class="ticker-track"><div class="ticker-run">
+    {% for rep in [0, 1] %}{% for it in latest %}<a href="{{ base }}/{{ it.path }}"{% if rep %} aria-hidden="true" tabindex="-1"{% endif %}><span class="tag tag-{{ it.category }}">{{ CATS[it.category][0] }}</span> {{ it.title }}</a>{% endfor %}{% endfor %}
+  </div></div>
+</section>
+{% endif %}
+
+{% if featured %}
+<section class="featured" aria-label="Important">
+  <h2 class="strip-h">Important / जरूरी</h2>
+  <div class="chips">
+    {% for p in featured %}<a class="chip" href="{{ base }}/{{ p.path }}">{{ p.title }}{% if p.new %} <b class="new">NEW</b>{% endif %}</a>{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="boxes">
+  {% for c, items, count in boxes %}
+  <article class="box box-{{ c }}">
+    <h2><a href="{{ base }}/{{ c }}/">{{ CATS[c][0] }}<span lang="hi">{{ CATS[c][1] }}</span></a></h2>
+    {% if items %}
+    <ul class="list">
+      {% for it in items %}{{ m.row(it) }}{% endfor %}
+    </ul>
+    <a class="more" href="{{ base }}/{{ c }}/">View all {{ count }} →</a>
+    {% else %}
+    <p class="empty">Abhi koi update nahi. Robot har 3 ghante me official sites check karta hai.</p>
+    {% endif %}
+  </article>
+  {% if loop.index == 3 %}<div class="box-ad">{{ m.ad(cfg.adsense.slot_in_content if cfg.adsense else '') }}</div>{% endif %}
+  {% endfor %}
+</section>
+
+{% if regions or orgs %}
+<section class="browse">
+  {% if regions %}
+  <div>
+    <h2 class="strip-h">State wise / राज्य</h2>
+    <div class="chips">{% for r, n in regions %}<a class="chip" href="{{ base }}/state/{{ r }}/">{{ REGIONS[r][0] }} <small>{{ n }}</small></a>{% endfor %}</div>
+  </div>
+  {% endif %}
+  {% if orgs %}
+  <div>
+    <h2 class="strip-h">Organisation wise / विभाग</h2>
+    <div class="chips">{% for key, org, n in orgs %}<a class="chip" href="{{ base }}/org/{{ key }}/">{{ org }} <small>{{ n }}</small></a>{% endfor %}</div>
+  </div>
+  {% endif %}
+</section>
+{% endif %}
+
+<section class="about-strip">
+  <h2>{{ cfg.site_name }} kya hai?</h2>
+  <p>{{ cfg.site_name }} par UPSC, SSC, Railway (RRB), Bank (IBPS, SBI, RBI), Defence, MPESB, MPPSC, DSSSB aur doosre state boards ki
+  nayi bhartiyan, admit card, result, answer key aur syllabus ek jagah milte hain. Hum har notice ko seedha uski official website se lete hain
+  aur link wahi dete hain — taaki aap fake notification se bach sakein. Kisi bhi form ko bharne se pehle official notification PDF zaroor padhein.</p>
+</section>
+{% endblock %}

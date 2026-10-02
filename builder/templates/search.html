@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block main %}
+<nav class="crumbs"><a href="{{ base }}/">Home</a> › Search</nav>
+<header class="page-h"><h1>Search</h1></header>
+<form class="big-search" role="search" onsubmit="return false">
+  <input id="q" type="search" placeholder="Type: SSC GD, MP Police, Railway, Result…" autofocus aria-label="Search">
+</form>
+<section class="box box-notices box-wide"><ul class="list" id="results"></ul><p class="empty" id="msg">Kuch type karein…</p></section>
+<script>
+(function(){
+  var base={{ base | tojson }}, labels={{ CATS | tojson }}, data=null;
+  var q=document.getElementById('q'), out=document.getElementById('results'), msg=document.getElementById('msg');
+  q.value=new URLSearchParams(location.search).get('q')||'';
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function run(){
+    var words=q.value.toLowerCase().split(/\s+/).filter(Boolean);
+    if(!data||!words.length){out.innerHTML='';msg.textContent=data?'Kuch type karein…':'Loading…';return}
+    var hits=data.filter(function(x){var h=(x.t+' '+x.o+' '+labels[x.c][0]).toLowerCase();return words.every(function(w){return h.indexOf(w)>-1})}).slice(0,150);
+    msg.textContent=hits.length?'':'Koi result nahi mila.';
+    out.innerHTML=hits.map(function(x){return '<li class="row"><a href="'+base+'/'+x.u+'">'+esc(x.t)+'</a><span class="meta"><span class="tag tag-'+x.c+'">'+labels[x.c][0]+'</span><span class="org">'+esc(x.o)+'</span><time>'+x.d+'</time></span></li>'}).join('');
+  }
+  fetch(base+'/search.json').then(function(r){return r.json()}).then(function(d){data=d;run()});
+  q.addEventListener('input',run);
+})();
+</script>
+{% endblock %}

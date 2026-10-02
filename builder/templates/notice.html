@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block main %}
+<nav class="crumbs"><a href="{{ base }}/">Home</a> › <a href="{{ base }}/{{ n.category }}/">{{ CATS[n.category][0] }}</a> › {{ n.org }}</nav>
+<div class="layout">
+<article class="detail">
+  <header class="detail-h box-{{ n.category }}">
+    <span class="tag tag-{{ n.category }}">{{ CATS[n.category][0] }} · {{ CATS[n.category][1] }}</span>
+    <h1>{{ n.title }}</h1>
+  </header>
+
+  {% if n.post %}
+  <a class="callout" href="{{ base }}/{{ n.post.path }}">📋 Is bharti ki poori detail (fees, age limit, dates, vacancy) yahan padhein: <strong>{{ n.post.title }}</strong> →</a>
+  {% endif %}
+
+  <table class="kv">
+    <tr><th>Organisation</th><td>{{ n.org_name }} ({{ n.org }})</td></tr>
+    <tr><th>Category</th><td>{{ CATS[n.category][0] }}</td></tr>
+    {% if n.date %}<tr><th>Notice date</th><td>{{ n.date | d }}</td></tr>{% endif %}
+    <tr><th>Added on this site</th><td>{{ n.first_seen | d }}</td></tr>
+    <tr><th>Official source</th><td><a href="{{ n.org_url }}" rel="nofollow noopener" target="_blank">{{ n.org_url }}</a></td></tr>
+  </table>
+
+  <div class="actions">
+    <a class="btn btn-main" href="{{ n.url }}" rel="nofollow noopener" target="_blank">{% if n.is_pdf %}Official Notice (PDF) देखें{% else %}Official Page खोलें{% endif %} ↗</a>
+    <a class="btn" href="{{ n.org_url }}" rel="nofollow noopener" target="_blank">{{ n.org }} Official Website ↗</a>
+  </div>
+
+  {{ m.ad(cfg.adsense.slot_in_content if cfg.adsense else '') }}
+
+  <section class="howto">
+    {% if n.category == 'admit-card' %}
+    <h2>Admit card kaise download karein</h2>
+    <ol><li>Upar diye "Official" button se {{ n.org }} ki website kholein.</li><li>Registration number / roll number aur date of birth ya password daalein.</li><li>Admit card download karke usme naam, photo, exam centre aur reporting time check karein.</li><li>Exam ke din admit card ke saath ek original photo ID le jaana na bhoolein.</li></ol>
+    {% elif n.category == 'result' %}
+    <h2>Result kaise check karein</h2>
+    <ol><li>Upar diye official link se result PDF ya result page kholein.</li><li>PDF me apna roll number dhoondhne ke liye Ctrl+F (mobile par "Find in page") use karein.</li><li>Cut off aur aage ke stage (DV, interview, medical) ki dates official notice me dekhein.</li></ol>
+    {% elif n.category == 'answer-key' %}
+    <h2>Answer key aur objection</h2>
+    <ol><li>Official link se answer key / response sheet kholein.</li><li>Apne answers milakar sambhavit marks nikaalein (negative marking ka niyam notice me dekhein).</li><li>Objection ki last date aur fees official notice me di gayi hoti hai — time se pehle objection darj karein.</li></ol>
+    {% elif n.category == 'latest-jobs' %}
+    <h2>Apply karne se pehle ye check karein</h2>
+    <ol><li>Official notification PDF me eligibility, age limit aur qualification dhyan se padhein.</li><li>Application fees, last date aur exam pattern note kar lein.</li><li>Form sirf official website se hi bharein. Kisi bhi unofficial link par fees jama na karein.</li></ol>
+    {% else %}
+    <h2>Is notice me kya check karein</h2>
+    <ol><li>Official link kholkar poora notice padhein — dates, venue ya schedule me badlaav ho sakta hai.</li><li>Agar ye kisi exam/interview se juda hai to apna roll number aur reporting time zaroor check karein.</li></ol>
+    {% endif %}
+    <p class="note">Ye jaankari {{ n.org_name }} ki official website par prakashit notice se li gayi hai. {{ cfg.site_name }} kisi sarkari vibhag se juda nahi hai — antim jaankari ke liye hamesha official notice hi maanya hai.</p>
+  </section>
+
+  {% if related %}
+  <section class="box box-{{ n.category }} related">
+    <h2>{{ n.org }} ke aur updates</h2>
+    <ul class="list">{% for it in related %}{{ m.row(it, show_cat=true) }}{% endfor %}</ul>
+  </section>
+  {% endif %}
+</article>
+<aside class="side">
+  {{ m.ad(cfg.adsense.slot_sidebar if cfg.adsense else '') }}
+  <div class="side-box">
+    <h3>Categories</h3>
+    {% for c in CATEGORY_ORDER %}<a href="{{ base }}/{{ c }}/">{{ CATS[c][0] }} <span lang="hi">{{ CATS[c][1] }}</span></a>{% endfor %}
+  </div>
+</aside>
+</div>
+{% endblock %}

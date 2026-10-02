@@ -1,0 +1,40 @@
+# ==========================================================
+#  SITE SETTINGS — sirf yahi file edit karke site customise karo
+# ==========================================================
+
+site_name: "Sarkari Naukri Live"
+site_name_hi: "सरकारी नौकरी लाइव"
+tagline: "Latest Govt Jobs, Admit Card, Result, Answer Key — official links, auto-updated"
+tagline_hi: "सरकारी नौकरी की हर सूचना, सबसे पहले"
+
+# Apni site ka poora address (end me / mat lagana).
+# GitHub Pages ke liye:   https://<github-username>.github.io/<repo-name>
+# Apna domain lene ke baad: https://www.yourdomain.in
+base_url: "https://sanskar-vermaa.github.io/sarkari-job-portal"
+
+language: "hi-IN"
+
+# Contact page par dikhega (AdSense ke liye contact page zaroori hai)
+contact_email: ""
+
+# ---------------- Google AdSense ----------------
+# AdSense approve hone ke baad yahan apna publisher ID daalo, e.g. "ca-pub-1234567890123456"
+# Ye bharte hi: AdSense script, ads.txt aur verification meta tag apne-aap lag jayenge.
+adsense:
+  client: ""
+  # Optional: agar AdSense me manual ad units banaye ho to unke slot IDs.
+  # Khali chhodoge to sirf "Auto ads" chalenge (recommended shuru me).
+  slot_top: ""
+  slot_in_content: ""
+  slot_sidebar: ""
+
+# ---------------- Google Search Console / Analytics ----------------
+google_site_verification: ""   # Search Console ka "HTML tag" wala content code
+google_analytics_id: ""        # e.g. "G-XXXXXXXXXX"
+
+# ---------------- Data settings ----------------
+max_age_days: 150        # isse purani date wale notices nahi uthaye jayenge
+keep_days: 400           # itne din baad purane notices list se hata diye jayenge
+max_new_per_source: 30   # ek run me ek source se max kitne naye notices
+new_badge_days: 3        # kitne din tak "NEW" badge dikhe
+home_items_per_box: 25

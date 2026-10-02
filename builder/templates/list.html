@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block main %}
+<nav class="crumbs"><a href="{{ base }}/">Home</a> › {{ heading }}</nav>
+<header class="page-h">
+  <h1>{{ heading }}{% if heading_hi %} <span lang="hi">{{ heading_hi }}</span>{% endif %}</h1>
+  <p>{{ intro }}{% if org_url %} Official website: <a href="{{ org_url }}" rel="nofollow noopener" target="_blank">{{ org_url }}</a>{% endif %}</p>
+</header>
+<div class="layout">
+  <section class="box box-{{ cat or 'notices' }} box-wide">
+    {% if items %}
+    <ul class="list">
+      {% for it in items %}{{ m.row(it, show_cat=(not cat)) }}{% if loop.index == 15 %}</ul>{{ m.ad(cfg.adsense.slot_in_content if cfg.adsense else '') }}<ul class="list">{% endif %}{% endfor %}
+    </ul>
+    {% else %}
+    <p class="empty">Is section me abhi koi update nahi hai. Robot har 3 ghante me official sites check karta hai.</p>
+    {% endif %}
+  </section>
+  <aside class="side">
+    {{ m.ad(cfg.adsense.slot_sidebar if cfg.adsense else '') }}
+    <div class="side-box">
+      <h3>Categories</h3>
+      {% for c in CATEGORY_ORDER %}<a href="{{ base }}/{{ c }}/">{{ CATS[c][0] }} <span lang="hi">{{ CATS[c][1] }}</span></a>{% endfor %}
+    </div>
+  </aside>
+</div>
+{% endblock %}

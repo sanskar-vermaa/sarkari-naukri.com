@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="{{ cfg.language or 'hi-IN' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_title }}</title>
+{% if description %}<meta name="description" content="{{ description }}">{% endif %}
+{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+{% if canonical is not none %}<link rel="canonical" href="{{ base_url }}/{{ canonical }}">{% endif %}
+<meta property="og:site_name" content="{{ cfg.site_name }}">
+<meta property="og:title" content="{{ page_title }}">
+{% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#7b1424">
+<link rel="icon" href="{{ base }}/static/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="{{ cfg.site_name }}" href="{{ base }}/feed.xml">
+<link rel="stylesheet" href="{{ base }}/static/style.css">
+{% if cfg.google_site_verification %}<meta name="google-site-verification" content="{{ cfg.google_site_verification }}">{% endif %}
+{% if cfg.adsense and cfg.adsense.client %}
+<meta name="google-adsense-account" content="{{ cfg.adsense.client }}">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ cfg.adsense.client }}" crossorigin="anonymous"></script>
+{% endif %}
+{% if cfg.google_analytics_id %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ cfg.google_analytics_id }}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ cfg.google_analytics_id }}');</script>
+{% endif %}
+{% block head %}{% endblock %}
+</head>
+<body>
+<header class="mast">
+  <div class="wrap mast-in">
+    <a class="brand" href="{{ base }}/">
+      <span class="brand-mark" aria-hidden="true">स</span>
+      <span class="brand-txt">
+        <strong>{{ cfg.site_name }}</strong>
+        <small>{{ cfg.tagline_hi }}</small>
+      </span>
+    </a>
+    <form class="mast-search" action="{{ base }}/search/" role="search">
+      <input name="q" type="search" placeholder="Search: SSC, Police, Railway, Admit Card…" aria-label="Search">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <nav class="catnav" aria-label="Categories">
+    <div class="wrap catnav-in">
+      <a href="{{ base }}/">Home</a>
+      {% for c in CATEGORY_ORDER %}<a href="{{ base }}/{{ c }}/" class="c-{{ c }}">{{ CATS[c][0] }}</a>{% endfor %}
+      <a href="{{ base }}/state/mp/">MP Jobs</a>
+    </div>
+  </nav>
+</header>
+
+{% import "_macros.html" as m with context %}
+
+<main class="wrap">
+{{ m.ad(cfg.adsense.slot_top if cfg.adsense else '') }}
+{% block main %}{% endblock %}
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <strong>{{ cfg.site_name }}</strong>
+      <p>Har notice ke saath official website ka link diya jata hai. Form bharne ya fees jama karne se pehle official notification zaroor padhein.</p>
+    </div>
+    <div class="foot-links">
+      <a href="{{ base }}/about/">About Us</a>
+      <a href="{{ base }}/contact/">Contact Us</a>
+      <a href="{{ base }}/privacy-policy/">Privacy Policy</a>
+      <a href="{{ base }}/disclaimer/">Disclaimer</a>
+      <a href="{{ base }}/terms/">Terms</a>
+      <a href="{{ base }}/feed.xml">RSS</a>
+    </div>
+  </div>
+  <div class="wrap foot-small">© {{ year }} {{ cfg.site_name }} · Updated {{ build_time }} IST · We are not affiliated with any government body.</div>
+</footer>
+</body>
+</html>
