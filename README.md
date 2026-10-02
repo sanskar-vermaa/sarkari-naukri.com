@@ -1,6 +1,6 @@
 # Sarkari Naukri Live — auto-updating govt job website
 
-Sarkari-style job portal: **Latest Jobs, Admit Card, Result, Answer Key, Syllabus, Important Notice** — official websites se **har 3 ghante me apne-aap** update hota hai, aur GitHub Pages par free host hota hai.
+Sarkari-style job portal: **Latest Jobs, Admit Card, Result, Answer Key, Syllabus, Important Notice** — official websites se **har 3 ghante me apne-aap** update hota hai, aur Vercel par free host hota hai.
 
 ## Ye kaam kaise karta hai
 
@@ -10,7 +10,7 @@ GitHub Actions (har 3 ghante)
    ├─ 1. scraper/update.py  → sources.yaml ki official sites kholta hai (UPSC, SSC, IBPS, RRB, MPESB, MPPSC, DSSSB ...)
    │                          naye links dhoondhta hai, category tay karta hai, data/notices.json me jodta hai
    ├─ 2. builder/build.py   → poori website bana deta hai (home boxes, category pages, har notice ka page, sitemap)
-   └─ 3. deploy             → GitHub Pages par live
+   └─ 3. data commit        → Vercel apne-aap site rebuild karke live karta hai
 ```
 
 - Har notice ka apna page banta hai: title, organisation, date, **official PDF/page ka link**.
@@ -19,14 +19,14 @@ GitHub Actions (har 3 ghante)
 
 ---
 
-## 1. Pehli baar setup (5 minute)
+## 1. Hosting (Vercel, free)
 
-1. Repo **Settings → Pages → Build and deployment → Source: "GitHub Actions"** select karo.
-2. **Actions** tab kholo → "Auto update site" → **Run workflow** dabao.
-3. 3–5 minute baad site live: `https://<username>.github.io/<repo-name>/`
-4. `config.yaml` me `base_url` me yahi address hona chahiye (repo naam badla ho to yahan bhi badlo).
+1. vercel.com → **Add New → Project** → is GitHub repo ko **Import** karo → **Deploy**. Settings `vercel.json` me pehle se hain, kuch badalna nahi.
+2. Site `https://<project>.vercel.app` par live ho jayegi.
+3. GitHub Actions har 3 ghante naye notices `data/` me commit karta hai, aur har commit par Vercel khud site dobara deploy kar deta hai.
+4. Apna domain lene par: Vercel → Project → **Settings → Domains** me add karo. Sitemap aur canonical links apne-aap naye domain par aa jayenge.
 
-Iske baad kuch nahi karna — robot khud har 3 ghante chalega.
+Robot turant chalana ho to: GitHub → **Actions → Auto update site → Run workflow**.
 
 ## 2. Naam / settings badalna
 
@@ -49,8 +49,8 @@ Agar page par bahut faltu links aa rahe hain to `selector:` (sirf notice board w
 
 ## 5. Google AdSense se kamai — honest roadmap
 
-1. **Apna domain lo** (.in / .com, approx ₹600–900/saal). github.io par AdSense approval lagbhag nahi milta.
-   Domain lene ke baad: Settings → Pages → **Custom domain** me daalo, DNS me GitHub ke A records lagao, aur `config.yaml` me `base_url` badlo.
+1. **Apna domain lo** (.in / .com, approx ₹600–900/saal). vercel.app subdomain par AdSense approval lagbhag nahi milta.
+   Domain lene ke baad Vercel → Settings → Domains me add karo.
 2. `config.yaml` me `contact_email` bharo (About, Contact, Privacy, Disclaimer pages pehle se bane hain).
 3. **Google Search Console** me site add karo → `google_site_verification` bharo → `sitemap.xml` submit karo.
 4. **Kam se kam 25–30 original Full Detail posts** likho. Sirf auto-links wali site ko AdSense "low value content" bolke reject karta hai.
@@ -81,5 +81,6 @@ python -m http.server -d public 8000    # http://localhost:8000
 | `scraper/` | Official sites se notice nikalne ka code |
 | `builder/` | Website banane ka code, templates, CSS |
 | `.github/workflows/update.yml` | Har 3 ghante chalne wala robot |
+| `vercel.json` | Vercel build settings |
 
 > Har notice ke saath official link diya jata hai. Ye website kisi sarkari vibhag se judi nahi hai.

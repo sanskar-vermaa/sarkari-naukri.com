@@ -1,0 +1,5 @@
+# Sirf website build ke liye (Vercel par). Scraper ke liye requirements.txt hai.
+PyYAML>=6.0
+Jinja2>=3.1
+Markdown>=3.5
+beautifulsoup4>=4.12

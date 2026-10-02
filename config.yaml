@@ -8,7 +8,7 @@ tagline: "Latest Govt Jobs, Admit Card, Result, Answer Key — official links, a
 tagline_hi: "सरकारी नौकरी की हर सूचना, सबसे पहले"
 
 # Apni site ka poora address (end me / mat lagana).
-# GitHub Pages ke liye:   https://<github-username>.github.io/<repo-name>
+# Vercel par ye apne-aap Vercel ke production URL se badal jata hai.
 # Apna domain lene ke baad: https://www.yourdomain.in
 base_url: "https://sanskar-vermaa.github.io/sarkari-naukri.com"
 

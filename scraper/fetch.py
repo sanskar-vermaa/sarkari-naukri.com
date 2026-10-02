@@ -21,7 +21,7 @@ from urllib3.util.retry import Retry
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
-TIMEOUT = 35
+TIMEOUT = 25
 
 _session: requests.Session | None = None
 _extra_pems: dict[str, str] = {}  # host -> PEM of fetched intermediates
@@ -31,7 +31,7 @@ def session() -> requests.Session:
     global _session
     if _session is None:
         s = requests.Session()
-        retry = Retry(total=2, backoff_factor=2, status_forcelist=(429, 500, 502, 503, 504))
+        retry = Retry(total=1, backoff_factor=1, status_forcelist=(429, 500, 502, 503, 504))
         s.mount("https://", HTTPAdapter(max_retries=retry))
         s.mount("http://", HTTPAdapter(max_retries=retry))
         s.headers.update({
@@ -118,7 +118,7 @@ def fetch_rendered(url: str) -> str:
         _browser = _pw.chromium.launch()
     page = _browser.new_page(user_agent=UA, ignore_https_errors=False)
     try:
-        page.goto(url, wait_until="networkidle", timeout=60_000)
+        page.goto(url, wait_until="networkidle", timeout=45_000)
         page.wait_for_timeout(2500)
         return page.content()
     finally:

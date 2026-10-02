@@ -7,6 +7,7 @@ from __future__ import annotations
 import datetime as dt
 import html
 import json
+import os
 import re
 import shutil
 from collections import defaultdict
@@ -87,6 +88,12 @@ def to_date(v) -> dt.date | None:
 class Site:
     def __init__(self):
         self.cfg = load_yaml(ROOT / "config.yaml")
+        # SITE_URL env > Vercel production domain > config.yaml
+        env_url = os.environ.get("SITE_URL") or (
+            f"https://{os.environ['VERCEL_PROJECT_PRODUCTION_URL']}"
+            if os.environ.get("VERCEL_PROJECT_PRODUCTION_URL") else "")
+        if env_url:
+            self.cfg["base_url"] = env_url
         self.base_url = self.cfg["base_url"].rstrip("/")
         self.base = urlparse(self.base_url).path.rstrip("/")  # "" or "/repo-name"
         self.now = dt.datetime.now(IST)
