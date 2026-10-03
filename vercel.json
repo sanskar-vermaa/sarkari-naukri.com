@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "python3 -m pip install -r requirements-build.txt",
+  "installCommand": "python3 -m pip install --break-system-packages -r requirements-build.txt",
   "buildCommand": "python3 -m builder.build",
   "outputDirectory": "public",
   "trailingSlash": true,
