@@ -1,304 +1,304 @@
 {
- "updated": "2026-10-08T16:12:23+05:30",
- "new_this_run": 1,
+ "updated": "2026-10-09T00:23:39+05:30",
+ "new_this_run": 3,
  "sources": [
   {
    "id": "upsc",
    "name": "Union Public Service Commission",
    "url": "https://upsc.gov.in/whats-new",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
-   "error": "ConnectTimeout: HTTPSConnectionPool(host='upsc.gov.in', port=443): Max retries exceeded with url: /whats-new (Caused by ConnectTimeoutError(<HTTPSConnection(host='upsc.gov.in', port=443) at 0x7ff40b7348f0>, 'Connection to upsc.gov.in ti",
+   "error": "ConnectTimeout: HTTPSConnectionPool(host='upsc.gov.in', port=443): Max retries exceeded with url: /whats-new (Caused by ConnectTimeoutError(<HTTPSConnection(host='upsc.gov.in', port=443) at 0x7fd308178200>, 'Connection to upsc.gov.in ti",
    "last_ok": null,
-   "seconds": 50.6
+   "seconds": 50.9
   },
   {
    "id": "upsc-recruitment",
    "name": "UPSC Recruitment",
    "url": "https://upsc.gov.in/recruitment/recruitment-advertisement",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
-   "error": "ConnectTimeout: HTTPSConnectionPool(host='upsc.gov.in', port=443): Max retries exceeded with url: /recruitment/recruitment-advertisement (Caused by ConnectTimeoutError(<HTTPSConnection(host='upsc.gov.in', port=443) at 0x7ff40abc4230>, '",
+   "error": "ConnectTimeout: HTTPSConnectionPool(host='upsc.gov.in', port=443): Max retries exceeded with url: /recruitment/recruitment-advertisement (Caused by ConnectTimeoutError(<HTTPSConnection(host='upsc.gov.in', port=443) at 0x7fd308178530>, '",
    "last_ok": null,
-   "seconds": 51.4
+   "seconds": 51.5
   },
   {
    "id": "ssc",
    "name": "Staff Selection Commission",
    "url": "https://ssc.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
    "found": 4,
    "new": 0,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
+   "last_ok": "2026-10-09T00:23:39+05:30",
    "seconds": 10.8
   },
   {
    "id": "ssc-nr",
    "name": "SSC Northern Region",
    "url": "https://sscnr.nic.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
    "found": 199,
    "new": 0,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
-   "seconds": 2.7
+   "last_ok": "2026-10-09T00:23:39+05:30",
+   "seconds": 2.5
   },
   {
    "id": "ssc-cr",
    "name": "SSC Central Region",
    "url": "https://ssccr.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
    "found": 32,
    "new": 0,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
-   "seconds": 2.7
+   "last_ok": "2026-10-09T00:23:39+05:30",
+   "seconds": 2.5
   },
   {
    "id": "ssc-mpr",
    "name": "SSC Madhya Pradesh Region",
    "url": "https://www.sscmpr.org/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
    "error": "SSLError: HTTPSConnectionPool(host='www.sscmpr.org', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certi",
    "last_ok": null,
-   "seconds": 3.9
+   "seconds": 2.9
   },
   {
    "id": "ibps",
    "name": "Institute of Banking Personnel Selection",
    "url": "https://www.ibps.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
    "found": 12,
-   "new": 0,
+   "new": 1,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
-   "seconds": 16.5
+   "last_ok": "2026-10-09T00:23:39+05:30",
+   "seconds": 16.7
   },
   {
    "id": "sbi",
    "name": "State Bank of India Careers",
    "url": "https://sbi.co.in/web/careers/current-openings",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
-   "found": 346,
-   "new": 0,
+   "found": 347,
+   "new": 1,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
-   "seconds": 2.8
+   "last_ok": "2026-10-09T00:23:39+05:30",
+   "seconds": 2.9
   },
   {
    "id": "rbi",
    "name": "Reserve Bank of India Opportunities",
    "url": "https://opportunities.rbi.org.in/Scripts/Vacancies.aspx",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
-   "found": 35,
+   "found": 34,
    "new": 0,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
-   "seconds": 1.4
+   "last_ok": "2026-10-09T00:23:39+05:30",
+   "seconds": 1.6
   },
   {
    "id": "rrb-cdg",
    "name": "Railway Recruitment Board Chandigarh",
    "url": "https://www.rrbcdg.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
    "error": "ConnectionError: HTTPSConnectionPool(host='www.rrbcdg.gov.in', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.rrbcdg.gov.in', port=443): Failed to establish a new connection: [Errno 1",
    "last_ok": null,
-   "seconds": 1.7
+   "seconds": 1.3
   },
   {
    "id": "rrb-bpl",
    "name": "Railway Recruitment Board Bhopal",
    "url": "https://www.rrbbpl.nic.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
-   "error": "ConnectTimeout: HTTPSConnectionPool(host='www.rrbbpl.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.rrbbpl.nic.in', port=443) at 0x7ff4088c8860>, 'Connection to www.rrbbpl.",
+   "error": "ConnectTimeout: HTTPSConnectionPool(host='www.rrbbpl.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.rrbbpl.nic.in', port=443) at 0x7fd305ec0530>, 'Connection to www.rrbbpl.",
    "last_ok": null,
-   "seconds": 51.3
+   "seconds": 51.1
   },
   {
    "id": "nta",
    "name": "National Testing Agency",
    "url": "https://nta.ac.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
-   "found": 646,
+   "found": 647,
    "new": 1,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
-   "seconds": 2.5
+   "last_ok": "2026-10-09T00:23:39+05:30",
+   "seconds": 2.7
   },
   {
    "id": "indiapost",
    "name": "India Post GDS",
    "url": "https://indiapostgdsonline.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
    "found": 1,
    "new": 0,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
-   "seconds": 1.8
+   "last_ok": "2026-10-09T00:23:39+05:30",
+   "seconds": 1.9
   },
   {
    "id": "army",
    "name": "Join Indian Army",
    "url": "https://joinindianarmy.nic.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
-   "error": "ConnectTimeout: HTTPSConnectionPool(host='joinindianarmy.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='joinindianarmy.nic.in', port=443) at 0x7ff40a14c3e0>, 'Connection to joi",
+   "error": "ConnectTimeout: HTTPSConnectionPool(host='joinindianarmy.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='joinindianarmy.nic.in', port=443) at 0x7fd307152240>, 'Connection to joi",
    "last_ok": null,
-   "seconds": 50.7
+   "seconds": 50.6
   },
   {
    "id": "navy",
    "name": "Join Indian Navy",
    "url": "https://www.joinindiannavy.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
-   "error": "ConnectTimeout: HTTPSConnectionPool(host='www.joinindiannavy.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.joinindiannavy.gov.in', port=443) at 0x7ff40a16ab70>, 'Connectio",
+   "error": "ConnectTimeout: HTTPSConnectionPool(host='www.joinindiannavy.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.joinindiannavy.gov.in', port=443) at 0x7fd307152090>, 'Connectio",
    "last_ok": null,
-   "seconds": 51.1
+   "seconds": 50.9
   },
   {
    "id": "isro",
    "name": "ISRO Careers",
    "url": "https://www.isro.gov.in/Careers.html",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
    "found": 6,
    "new": 0,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
-   "seconds": 2.1
+   "last_ok": "2026-10-09T00:23:39+05:30",
+   "seconds": 0.2
   },
   {
    "id": "aiims",
    "name": "AIIMS Exams",
    "url": "https://www.aiimsexams.ac.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
    "found": 11,
    "new": 0,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
-   "seconds": 0.7
+   "last_ok": "2026-10-09T00:23:39+05:30",
+   "seconds": 0.8
   },
   {
    "id": "mpesb",
    "name": "MP Employee Selection Board",
    "url": "https://esb.mp.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
    "found": 0,
    "new": 0,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
-   "seconds": 4.7
+   "last_ok": "2026-10-09T00:23:39+05:30",
+   "seconds": 5.1
   },
   {
    "id": "mppsc",
    "name": "MP Public Service Commission",
    "url": "https://mppsc.mp.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
-   "error": "ConnectTimeout: HTTPSConnectionPool(host='mppsc.mp.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='mppsc.mp.gov.in', port=443) at 0x7ff408cb2d20>, 'Connection to mppsc.mp.gov.in",
+   "error": "ConnectTimeout: HTTPSConnectionPool(host='mppsc.mp.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='mppsc.mp.gov.in', port=443) at 0x7fd30629c8c0>, 'Connection to mppsc.mp.gov.in",
    "last_ok": null,
-   "seconds": 50.4
+   "seconds": 50.8
   },
   {
    "id": "dsssb",
    "name": "Delhi Subordinate Services Selection Board",
    "url": "https://dsssb.delhi.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
-   "error": "ConnectTimeout: HTTPSConnectionPool(host='dsssb.delhi.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='dsssb.delhi.gov.in', port=443) at 0x7ff408cb3140>, 'Connection to dsssb.del",
+   "error": "ConnectTimeout: HTTPSConnectionPool(host='dsssb.delhi.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='dsssb.delhi.gov.in', port=443) at 0x7fd30629cec0>, 'Connection to dsssb.del",
    "last_ok": null,
-   "seconds": 50.7
+   "seconds": 50.6
   },
   {
    "id": "upsssc",
    "name": "UP Subordinate Services Selection Commission",
    "url": "https://upsssc.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
-   "error": "ConnectTimeout: HTTPSConnectionPool(host='upsssc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='upsssc.gov.in', port=443) at 0x7ff4088c90d0>, 'Connection to upsssc.gov.in timed",
+   "error": "ConnectTimeout: HTTPSConnectionPool(host='upsssc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='upsssc.gov.in', port=443) at 0x7fd305ec0d40>, 'Connection to upsssc.gov.in timed",
    "last_ok": null,
-   "seconds": 50.7
+   "seconds": 50.6
   },
   {
    "id": "uppsc",
    "name": "UP Public Service Commission",
    "url": "https://uppsc.up.nic.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
    "found": 52,
    "new": 0,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
-   "seconds": 2.6
+   "last_ok": "2026-10-09T00:23:39+05:30",
+   "seconds": 2.4
   },
   {
    "id": "bpsc",
    "name": "Bihar Public Service Commission",
    "url": "https://bpsc.bihar.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
    "error": "ValueError: Unable to load PEM file. See https://cryptography.io/en/latest/faq/#why-can-t-i-import-my-pem-file for more details. MalformedFraming",
    "last_ok": null,
-   "seconds": 2.8
+   "seconds": 2.6
   },
   {
    "id": "bssc",
    "name": "Bihar Staff Selection Commission",
    "url": "https://bssc.bihar.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
    "error": "ValueError: Unable to load PEM file. See https://cryptography.io/en/latest/faq/#why-can-t-i-import-my-pem-file for more details. MalformedFraming",
    "last_ok": null,
-   "seconds": 3.0
+   "seconds": 4.5
   },
   {
    "id": "rssb",
    "name": "Rajasthan Staff Selection Board",
    "url": "https://rssb.rajasthan.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
-   "error": "ConnectTimeout: HTTPSConnectionPool(host='rssb.rajasthan.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rssb.rajasthan.gov.in', port=443) at 0x7ff408c687a0>, 'Connection to rss",
+   "error": "ConnectTimeout: HTTPSConnectionPool(host='rssb.rajasthan.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rssb.rajasthan.gov.in', port=443) at 0x7fd30621a0f0>, 'Connection to rss",
    "last_ok": null,
    "seconds": 50.6
   },
@@ -306,7 +306,7 @@
    "id": "rpsc",
    "name": "Rajasthan Public Service Commission",
    "url": "https://rpsc.rajasthan.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
@@ -318,23 +318,23 @@
    "id": "hssc",
    "name": "Haryana Staff Selection Commission",
    "url": "https://hssc.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": true,
    "found": 12,
    "new": 0,
    "error": null,
-   "last_ok": "2026-10-08T16:12:23+05:30",
+   "last_ok": "2026-10-09T00:23:39+05:30",
    "seconds": 1.3
   },
   {
    "id": "cgvyapam",
    "name": "Chhattisgarh Vyapam",
    "url": "https://vyapam.cgstate.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
-   "error": "ConnectTimeout: HTTPSConnectionPool(host='vyapam.cgstate.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='vyapam.cgstate.gov.in', port=443) at 0x7ff409a99340>, 'Connection to vya",
+   "error": "ConnectTimeout: HTTPSConnectionPool(host='vyapam.cgstate.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='vyapam.cgstate.gov.in', port=443) at 0x7fd307086510>, 'Connection to vya",
    "last_ok": null,
    "seconds": 100.7
   },
@@ -342,13 +342,13 @@
    "id": "cgpsc",
    "name": "Chhattisgarh Public Service Commission",
    "url": "https://psc.cg.gov.in/",
-   "checked": "2026-10-08T16:12:23+05:30",
+   "checked": "2026-10-09T00:23:39+05:30",
    "ok": false,
    "found": 0,
    "new": 0,
-   "error": "ConnectTimeout: HTTPSConnectionPool(host='psc.cg.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='psc.cg.gov.in', port=443) at 0x7ff409a9a570>, 'Connection to psc.cg.gov.in timed",
+   "error": "ConnectTimeout: HTTPSConnectionPool(host='psc.cg.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='psc.cg.gov.in', port=443) at 0x7fd306274e30>, 'Connection to psc.cg.gov.in timed",
    "last_ok": null,
-   "seconds": 51.0
+   "seconds": 50.6
   }
  ]
 }
